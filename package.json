@@ -1,16 +1,23 @@
 {
-  "name": "nodeapi",
+  "name": "bikerent",
   "version": "1.0.0",
-  "description": "A node JS API",
-  "main": "app.js",
+  "description": "bike rent app",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon app.js"
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "S.Herman",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergeherman/bike-rent-app.git"
+  },
+  "author": "Siarhei Herman",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sergeherman/bike-rent-app/issues"
+  },
+  "homepage": "https://github.com/sergeherman/bike-rent-app#readme",
   "dependencies": {
-    "express": "^4.17.1",
-    "morgan": "^1.10.0",
-    "nodemon": "^2.0.6"
+    "express": "^4.17.1"
   }
 }
