@@ -11,12 +11,12 @@ app.use(express.json());
 //support url encoded bodies
 //app.use(express.urlencoded.apply({extended: true}));
 app.use(express.urlencoded({ extended: true }));
-app.get("/topics", function(req, res) {
+app.get("/types", function(req, res) {
     // get the list of all beke types
     console.log("Getting all byke types...");
 
     var results = {
-        topics: [
+        types: [
             {id:1, name:"bmx"},
             {id:2, name:"mountain"},
             {id:3, name:"road"}
@@ -26,11 +26,11 @@ app.get("/topics", function(req, res) {
 
 });
 
-app.get("/topic", function(req, res) {
+app.get("/type", function(req, res) {
     //get a single bike type by id
     // /type?id=1
     var id = req.query.id;
-    // /topic/xxxxxxx
+    // /type/xxxxxxx
     //var id = req.params.id;
 
     console.log("Getting bike type with id: " + id);
@@ -41,7 +41,7 @@ app.get("/topic", function(req, res) {
 
 });
 
-app.post("/topic", function(req, res) {
+app.post("/type", function(req, res) {
     var name = req.body.name;
     console.log("Creating a new bike type with name: " + name);
 
