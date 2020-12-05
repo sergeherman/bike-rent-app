@@ -2,9 +2,20 @@
 <html>
 <head>
     <title>Bike Rent</title>
+    <script src="bikes-clientside.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <h1>Search the bikes</h1>
+<input type="text" id="order" placeholder="Order"><button onclick="searchByOrder()">Search by Order</button><br>
+<input type="text" id="type" placeholder="Type"><button onclick="searchByType()">Search by Type</button><br>
+<div>
+    <h2>Results</h2>
+    <ul id="ulBikes">
+
+    </ul>
+
+</div>
 
 </body>
 
