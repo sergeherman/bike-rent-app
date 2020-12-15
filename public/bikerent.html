@@ -1,23 +1,231 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Bike Rent</title>
+    <head>
+        <title>Mike’s Bike Rent</title>
+        <meta name="description" content="Mike’s Bike Rent">
+        <link rel="stylesheet" href="styles.css" />
+        <style>
+            *{box-sizing:border-box;font-family:"Arial Narrow",Arial,sans-serif;color:#777}body,html{margin:0;padding:0;min-height:100%}.nav ul{margin:0}.nav li{display:inline}.nav a{display:inline-block;padding:.5em;color:#fff;text-decoration:none}.main-nav{text-align:center;font-size:1.1em;font-weight:lighter;border-bottom:1px solid rgba(255,255,255,.3)}.main-nav li{padding:0 5%}.nav a:hover{background-color:rgba(255,255,255,.3)}.main-header{background-color:rgba(0,0,0,.6);background-image:url(Images/header.jpg);background-blend-mode:multiply;background-size:cover;padding-bottom:30px}.sitename{text-align:center;margin:0;font-size:4em;font-weight:400;color:#fff}.content-section{margin:1em}.container{max-width:900px;margin:0 auto;padding:0 1.5em}.section-header{font-weight:400;color:#333;text-align:center;font-size:2.5em}.btn{text-align:center;vertical-align:middle;padding:.67em .67em;cursor:pointer}.btn-primary{color:#fff;background-color:grey}.btn-primary:hover{background-color:navy}.shop-item{margin:30px}.bikeItemTitle{display:block;width:100%;text-align:center;font-weight:700;font-size:1.5em;color:#333;margin-bottom:15px}.bikeItemImage{height:250px}.shop-item-details{display:flex;align-items:center;padding:5px}.bikeItemPrice{flex-grow:1;color:#333}.shop-items{display:flex;flex-wrap:wrap;justify-content:space-around}.cart-header{font-weight:700;font-size:1.25em;color:#333}.cart-column{display:flex;align-items:center;border-bottom:1px solid #000;margin-right:1.5em;padding-bottom:10px;margin-top:10px}.orderRow{display:flex}.cart-item{width:45%}.cart-quantity{width:35%}.orderRow:last-child{border-bottom:1px solid #000}.orderRow:last-child .cart-column{border:none}.cart-total{text-align:end;margin-top:10px;text-align:center}.cart-total-title{font-weight:700;font-size:1.5em;color:#000;margin-right:20px}.allBikesPice{color:#333;font-size:1.1em}.btn-purchase{display:block;margin:40px auto 80px auto;font-size:1.75em}
+        </style>
+        
     <script src="bikes-clientside.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="store.js"></script>
 </head>
 <body>
-<h1>Search the bikes</h1>
-<input type="text" id="order" placeholder="Order"><button onclick="searchByOrder()">Search by Order</button><br>
-<input type="text" id="type" placeholder="Type"><button onclick="searchByType()">Search by Type</button><br>
-<div>
-    <h2>Results</h2>
+    <header class="main-header">
+        <nav class="main-nav nav">
+            <ul>
+
+                <li><a href="https://bike-rent-app.herokuapp.com/bikerent.html">STORE</a></li>
+                <li><a href="https://bike-rent-app.herokuapp.com/types">SEARCH BIKE TYPES</a></li>
+            </ul>
+        </nav>
+        <h1 class="sitename">Mike’s Bike Rent </h1>
+    </header>
+    <section class="container content-section"></section>
+    <h2 class="section-header">SEARCH THE BIKES RENT ORDERS</h2>
+    <div class="section-header">
+<input type="text" id="orders" placeholder="Order"><button onclick="searchByOrder()">Search by Order</button><br>
+<!-- <input type="text" id="type" placeholder="Type"><button onclick="searchByType()">Search by Type</button><br> -->
+</section>
+
+<p>Orders Search Results</p>
     <ul id="ulBikes">
-
     </ul>
-
 </div>
 
-</body>
 
+<section class="container content-section">
+    <h2 class="section-header">BIKES RENT (Cost Per Day)</h2>
+    <div class="shop-items">
+        <div class="shop-item">
+            <span class="bikeItemTitle">BMX</span>
+            <img class="bikeItemImage" src="Images/bmx.jpg">
+            <div class="shop-item-details">
+                <span class="bikeItemPrice">$19.99</span>
+                <button class="btn btn-primary orderItemTitle" type="button">ORDER</button>
+            </div>
+        </div>
+        <div class="shop-item">
+            <span class="bikeItemTitle">ROAD</span>
+            <img class="bikeItemImage" src="Images/road.jpg">
+            <div class="shop-item-details">
+                <span class="bikeItemPrice">$15.99</span>
+                <button class="btn btn-primary orderItemTitle"type="button">ORDER</button>
+            </div>
+        </div>
+        <div class="shop-item">
+            <span class="bikeItemTitle">MOUNTAIN</span>
+            <img class="bikeItemImage" src="Images/mountain.jpg">
+            <div class="shop-item-details">
+                <span class="bikeItemPrice">$25.99</span>
+                <button class="btn btn-primary orderItemTitle" type="button">ORDER</button>
+            </div>
+        </div>
+        <div class="shop-item">
+            <span class="bikeItemTitle">CHILD BIKE</span>
+            <img class="bikeItemImage" src="Images/child.jpg">
+            <div class="shop-item-details">
+                <span class="bikeItemPrice">$9.99</span>
+                <button class="btn btn-primary orderItemTitle" type="button">ORDER</button>
+            </div>
+        </div>
+        
+    </div>
+</section>
+<section class="container content-section">
+    <h2 class="section-header">SERVICES (Cost Per Hour)</h2>
+    <div class="shop-items">
+        <div class="shop-item">
+            <span class="bikeItemTitle">REPAIRS</span>
+            <img class="bikeItemImage" src="Images/repairs.jpg">
+            <div class="shop-item-details">
+                <span class="bikeItemPrice">$19.99</span>
+                <button class="btn btn-primary orderItemTitle" type="button">ORDER</button>
+            </div>
+        </div>
+        <div class="shop-item">
+            <span class="bikeItemTitle">DESIGN</span>
+            <img class="bikeItemImage" src="Images/design.jpg">
+            <div class="shop-item-details">
+                <span class="bikeItemPrice">$16.99</span>
+                <button class="btn btn-primary orderItemTitle" type="button">ORDER</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container content-section">
+    <h2 class="section-header">CART</h2>
+    <div class="orderRow">
+        <span class="cart-item cart-header cart-column">Item, price & quantity</span>
+    </div>
+    <div class="bike-items">
+    </div>
+    <div class="cart-total">
+        <strong class="cart-total-title">Total</strong>
+        <span class="allBikesPice">$0</span>
+    </div>
+    <button class="btn btn-primary btn-purchase" type="button">PLACE THE ORDER</button>
+</section>
+<footer class="main-header">
+    
+        <h3>Mike’s Bike Rent</h3>
+        
+                <a href="https://www.youtube.com" target="_blank">
+                    <img src="Images/YouTube Logo.png">
+                </a>
+           
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="Images/Facebook Logo.png">
+                
+</footer>
+<script>
+    if (document.readyState == 'loading') {
+    document.addEventListener('DOMContentLoaded', ready)
+} else {
+    ready()
+}
+
+function ready() {
+    var removeBikeButton = document.getElementsByClassName('btnDelete')
+    for (var i = 0; i < removeBikeButton.length; i++) {
+        var button = removeBikeButton[i]
+        button.addEventListener('click', removeCartItem)
+    }
+
+    var quantityInputs = document.getElementsByClassName('cart-quantity-input')
+    for (var i = 0; i < quantityInputs.length; i++) {
+        var input = quantityInputs[i]
+        input.addEventListener('change', quantityChanged)
+    }
+
+    var addToCartButtons = document.getElementsByClassName('orderItemTitle')
+    for (var i = 0; i < addToCartButtons.length; i++) {
+        var button = addToCartButtons[i]
+        button.addEventListener('click', addOrderClicked)
+    }
+
+    document.getElementsByClassName('btn-purchase')[0].addEventListener('click', orderClicked)
+}
+
+function orderClicked() {
+    alert('THANK YOU FOR PLACING YOUR ORDER')
+    var cartItems = document.getElementsByClassName('bike-items')[0]
+    while (cartItems.hasChildNodes()) {
+        cartItems.removeChild(cartItems.firstChild)
+    }
+    updateCartTotal()
+}
+
+function removeCartItem(event) {
+    var buttonClicked = event.target
+    buttonClicked.parentElement.parentElement.remove()
+    updateCartTotal()
+}
+
+function quantityChanged(event) {
+    var input = event.target
+    if (isNaN(input.value) || input.value <= 0) {
+        input.value = 1
+    }
+    updateCartTotal()
+}
+
+function addOrderClicked(event) {
+    var button = event.target
+    var orderBike = button.parentElement.parentElement
+    var title = orderBike.getElementsByClassName('bikeItemTitle')[0].innerText
+    var price = orderBike.getElementsByClassName('bikeItemPrice')[0].innerText
+    var imageSrc = orderBike.getElementsByClassName('bikeItemImage')[0].src
+    addBikeToCart(title, price, imageSrc)
+    updateCartTotal()
+}
+
+function addBikeToCart(title, price, imageSrc) {
+    var cartRow = document.createElement('div')
+    cartRow.classList.add('orderRow')
+    var cartItems = document.getElementsByClassName('bike-items')[0]
+    var cartItemNames = cartItems.getElementsByClassName('orderCartTitle')
+    for (var i = 0; i < cartItemNames.length; i++) {
+        if (cartItemNames[i].innerText == title) {
+            alert('In cart already')
+            return
+        }
+    }
+    var cartRowContents = `
+        <div class="cart-item cart-column">
+            <img class="cart-item-image" src="${imageSrc}" width="110" height="90">
+            <span class="orderCartTitle">${title}</span>
+        </div>
+        <span class="BikesPice cart-column">${price}</span>
+        <div class="cart-quantity cart-column">
+            <input class="cart-quantity-input" type="number" value="1">
+            <button class="btn btnDelete" type="button">Delete</button>
+        </div>`
+    cartRow.innerHTML = cartRowContents
+    cartItems.append(cartRow)
+    cartRow.getElementsByClassName('btnDelete')[0].addEventListener('click', removeCartItem)
+    cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
+}
+
+function updateCartTotal() {
+    var cartItemContainer = document.getElementsByClassName('bike-items')[0]
+    var cartRows = cartItemContainer.getElementsByClassName('orderRow')
+    var total = 0
+    for (var i = 0; i < cartRows.length; i++) {
+        var cartRow = cartRows[i]
+        var priceElement = cartRow.getElementsByClassName('BikesPice')[0]
+        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
+        var price = parseFloat(priceElement.innerText.replace('$', ''))
+        var quantity = quantityElement.value
+        total = total + (price * quantity)
+    }
+    total = Math.round(total * 100) / 100
+    document.getElementsByClassName('allBikesPice')[0].innerText = '$' + total
+}
+
+    </script>
+</body>
 
 </html>
